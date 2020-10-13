@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="MahAppIcons.Shared.Views.ShellPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:MahAppIcons.Shared.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+
+    <Grid>
+
+        <NavigationView
+            x:Name="navigationView"
+            Background="{ThemeResource CMapUwpAcrylicBrush}"
+            IsBackButtonVisible="Visible"
+            IsSettingsVisible="False"
+            MenuItemsSource="{x:Bind ViewModel.IconPackCollection, Mode=TwoWay}"
+            OpenPaneLength="280"
+            PaneDisplayMode="Left">
+            <!--
+                IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
+                SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
+            -->
+
+            <NavigationView.MenuItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Caption, Mode=TwoWay}" />
+                </DataTemplate>
+            </NavigationView.MenuItemTemplate>
+            <Grid>
+                <Frame x:Name="shellFrame" />
+            </Grid>
+        </NavigationView>
+
+    </Grid>
+</Page>
