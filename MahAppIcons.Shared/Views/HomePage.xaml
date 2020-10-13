@@ -168,8 +168,32 @@
             CompactModeThresholdWidth="720"
             DetailsHeader="{x:Bind ViewModel.IconPackSelectedItem.Caption, Mode=OneWay}"
             ItemsSource="{x:Bind ViewModel.IconPackCollection, Mode=TwoWay}"
+            MasterHeader="MahApps Icons Browser"
+            MasterPaneWidth="350"
             NoSelectionContent="Select an item to view"
             SelectedItem="{x:Bind ViewModel.IconPackSelectedItem, Mode=TwoWay}">
+            <controls:MasterDetailsView.MasterHeaderTemplate>
+                <DataTemplate>
+                    <StackPanel
+                        Height="150"
+                        Margin="5"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
+                        <Image
+                            Width="80"
+                            Height="80"
+                            Margin="10,20,10,5"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Source="/Assets/LockScreenLogo.scale-200.png" />
+                        <TextBlock
+                            Margin="10"
+                            FontSize="20"
+                            Text="MahApps Icons Browser" />
+                    </StackPanel>
+                </DataTemplate>
+            </controls:MasterDetailsView.MasterHeaderTemplate>
             <controls:MasterDetailsView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="0,8">
@@ -183,11 +207,20 @@
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <ItemsWrapGrid
-                                    ItemHeight="200"
-                                    ItemWidth="200"
+                                    ItemHeight="160"
+                                    ItemWidth="160"
                                     Orientation="Horizontal" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
+                        <GridView.HeaderTemplate>
+                            <DataTemplate x:DataType="vm1:IconPackViewModel">
+                                <TextBox
+                                    Margin="10"
+                                    HorizontalAlignment="Stretch"
+                                    PlaceholderText="Search"
+                                    Text="{Binding FilterText, Mode=TwoWay}" />
+                            </DataTemplate>
+                        </GridView.HeaderTemplate>
                         <GridView.ItemTemplate>
                             <DataTemplate x:DataType="vm1:IIconViewModel">
                                 <StackPanel Orientation="Vertical">
@@ -348,20 +381,20 @@
             </controls:MasterDetailsView.NoSelectionContentTemplate>
             <controls:MasterDetailsView.MasterCommandBar>
                 <CommandBar>
-                    <AppBarButton Icon="Back" Label="Back" />
-                    <AppBarButton Icon="Forward" Label="Forward" />
+                    <!--<AppBarButton Icon="Account" Label="Back" />-->
+                    <AppBarButton Icon="Setting" Label="Settings" />
 
                     <CommandBar.Content>
                         <TextBlock Margin="12,14">
-                            <Run Text="{Binding IconCount}" />
-                            <Run Text="Items" />
+                            <Run Text="{x:Bind ViewModel.IconPackCollection.Count}" />
+                            <Run Text=" : MahApps Library" />
                         </TextBlock>
                     </CommandBar.Content>
                 </CommandBar>
             </controls:MasterDetailsView.MasterCommandBar>
             <controls:MasterDetailsView.DetailsCommandBar>
                 <CommandBar>
-                    <AppBarButton Icon="MailReply" Label="Reply" />
+                    <AppBarButton Icon="Copy" Label="Reply" />
                     <AppBarButton Icon="MailReplyAll" Label="Reply All" />
                     <AppBarButton Icon="MailForward" Label="Forward" />
                 </CommandBar>

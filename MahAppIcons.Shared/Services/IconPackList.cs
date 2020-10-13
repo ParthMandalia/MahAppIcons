@@ -22,6 +22,53 @@ namespace MahAppIcons.Shared.Services
                  collection = new ObservableCollection<IconPackViewModel>(
                  new[]
                  {
+                     new IconPackViewModel(vm,"All",
+                        new[]
+                        {
+                            typeof(PackIconBoxIconsKind),
+                            typeof(PackIconEntypoKind),
+                            typeof(PackIconEvaIconsKind),
+                            typeof(PackIconFeatherIconsKind),
+                            typeof(PackIconFontAwesomeKind),
+                            typeof(PackIconIoniconsKind),
+                            typeof(PackIconJamIconsKind),
+                            typeof(PackIconMaterialKind),
+                            typeof(PackIconMaterialDesignKind),
+                            typeof(PackIconMaterialLightKind),
+                            typeof(PackIconMicronsKind),
+                            typeof(PackIconModernKind),
+                            typeof(PackIconOcticonsKind),
+                            typeof(PackIconPicolIconsKind),
+                            typeof(PackIconRPGAwesomeKind),
+                            typeof(PackIconSimpleIconsKind),
+                            typeof(PackIconTypiconsKind),
+                            typeof(PackIconUniconsKind),
+                            typeof(PackIconWeatherIconsKind),
+                            typeof(PackIconZondiconsKind)
+                        },
+                        new[]
+                        {
+                            typeof(PackIconBoxIcons),
+                            typeof(PackIconEntypo),
+                            typeof(PackIconEvaIcons),
+                            typeof(PackIconFeatherIcons),
+                            typeof(PackIconFontAwesome),
+                            typeof(PackIconIonicons),
+                            typeof(PackIconJamIcons),
+                            typeof(PackIconMaterial),
+                            typeof(PackIconMaterialDesign),
+                            typeof(PackIconMaterialLight),
+                            typeof(PackIconMicrons),
+                            typeof(PackIconModern),
+                            typeof(PackIconOcticons),
+                            typeof(PackIconPicolIcons),
+                            typeof(PackIconRPGAwesome),
+                            typeof(PackIconSimpleIcons),
+                            typeof(PackIconTypicons),
+                            typeof(PackIconUnicons),
+                            typeof(PackIconWeatherIcons),
+                            typeof(PackIconZondicons)
+                        }),
                     new IconPackViewModel(vm,"BoxIcons", typeof(PackIconBoxIconsKind), typeof(PackIconBoxIcons)),
                     new IconPackViewModel(vm,"Entypo+", typeof(PackIconEntypoKind), typeof(PackIconEntypo)),
                     new IconPackViewModel(vm,"EvaIcons", typeof(PackIconEvaIconsKind), typeof(PackIconEvaIcons)),
@@ -42,53 +89,6 @@ namespace MahAppIcons.Shared.Services
                     new IconPackViewModel(vm,"Unicons", typeof(PackIconUniconsKind), typeof(PackIconUnicons)),
                     new IconPackViewModel(vm,"WeatherIcons", typeof(PackIconWeatherIconsKind), typeof(PackIconWeatherIcons)),
                     new IconPackViewModel(vm,"Zondicons", typeof(PackIconZondiconsKind), typeof(PackIconZondicons))
-                    //new IconPackViewModel(vm,"All",
-                    //    new[]
-                    //    {
-                    //        typeof(PackIconBoxIconsKind),
-                    //        typeof(PackIconEntypoKind),
-                    //        typeof(PackIconEvaIconsKind),
-                    //        typeof(PackIconFeatherIconsKind),
-                    //        typeof(PackIconFontAwesomeKind),
-                    //        typeof(PackIconIoniconsKind),
-                    //        typeof(PackIconJamIconsKind),
-                    //        typeof(PackIconMaterialKind),
-                    //        typeof(PackIconMaterialDesignKind),
-                    //        typeof(PackIconMaterialLightKind),
-                    //        typeof(PackIconMicronsKind),
-                    //        typeof(PackIconModernKind),
-                    //        typeof(PackIconOcticonsKind),
-                    //        typeof(PackIconPicolIconsKind),
-                    //        typeof(PackIconRPGAwesomeKind),
-                    //        typeof(PackIconSimpleIconsKind),
-                    //        typeof(PackIconTypiconsKind),
-                    //        typeof(PackIconUniconsKind),
-                    //        typeof(PackIconWeatherIconsKind),
-                    //        typeof(PackIconZondiconsKind)
-                    //    },
-                    //    new[]
-                    //    {
-                    //        typeof(PackIconBoxIcons),
-                    //        typeof(PackIconEntypo),
-                    //        typeof(PackIconEvaIcons),
-                    //        typeof(PackIconFeatherIcons),
-                    //        typeof(PackIconFontAwesome),
-                    //        typeof(PackIconIonicons),
-                    //        typeof(PackIconJamIcons),
-                    //        typeof(PackIconMaterial),
-                    //        typeof(PackIconMaterialDesign),
-                    //        typeof(PackIconMaterialLight),
-                    //        typeof(PackIconMicrons),
-                    //        typeof(PackIconModern),
-                    //        typeof(PackIconOcticons),
-                    //        typeof(PackIconPicolIcons),
-                    //        typeof(PackIconRPGAwesome),
-                    //        typeof(PackIconSimpleIcons),
-                    //        typeof(PackIconTypicons),
-                    //        typeof(PackIconUnicons),
-                    //        typeof(PackIconWeatherIcons),
-                    //        typeof(PackIconZondicons)
-                    //    })
                  });
             return await Task.FromResult(collection);
         }

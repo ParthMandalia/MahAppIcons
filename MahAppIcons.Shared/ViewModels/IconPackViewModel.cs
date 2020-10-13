@@ -18,7 +18,7 @@ namespace MahAppIcons.SharedViewModels
     public class IconPackViewModel : ViewModelBase
     {
         private IEnumerable<IIconViewModel> _icons;
-        private ObservableCollection<IIconViewModel> _iconlist;
+        private IEnumerable<IIconViewModel> _iconlist;
         private int _iconCount;
         private ICollectionView _iconsCollectionView;
         private string _filterText;
@@ -48,7 +48,7 @@ namespace MahAppIcons.SharedViewModels
                 var collection = await Task.Run(() => GetIcons(enumType, packType).OrderBy(i => i.Name, StringComparer.InvariantCultureIgnoreCase).ToList());
 
                 Icons = new ObservableCollection<IIconViewModel>(collection);
-                IconList = new ObservableCollection<IIconViewModel>(Icons.ToList());
+                IconList = new ObservableCollection<IIconViewModel>(collection);
                 IconCount = ((ICollection)Icons).Count;
                 PrepareFiltering();
                 SelectedIcon = Icons.First();
@@ -61,6 +61,19 @@ namespace MahAppIcons.SharedViewModels
             Caption = caption;
 
             LoadIcons(enumTypes, packTypes);
+        }
+
+        private void FilterData()
+        {
+            if(SelectedIcon != null && !string.IsNullOrEmpty(FilterText))
+            {
+                Icons = Icons.Where(a => (a.Name.ToString().ToLower().Contains(FilterText.ToLower())));
+                //Icons = Icons.Where(a => (a.Name.ToString().Contains(FilterText)) || (a.Description.ToString().Contains(FilterText))).ToList();
+            }
+            else
+            {
+                Icons = _iconlist;
+            }
         }
 
         private async Task LoadAllEnumsAsync(Type[] enumTypes, Type[] packTypes)
@@ -137,7 +150,7 @@ namespace MahAppIcons.SharedViewModels
             set { Set(ref _icons, value); }
         }
 
-        public ObservableCollection<IIconViewModel> IconList
+        public IEnumerable<IIconViewModel> IconList
         {
             get { return _iconlist; }
             set { Set(ref _iconlist, value); }
@@ -156,6 +169,7 @@ namespace MahAppIcons.SharedViewModels
             {
                 if (Set(ref _filterText, value))
                 {
+                    FilterData();
                     //this._iconsCollectionView.Refresh();
                 }
             }
