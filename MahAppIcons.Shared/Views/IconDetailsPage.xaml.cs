@@ -1,5 +1,6 @@
 ﻿using MahAppIcons.Shared.ViewModels;
 using MahAppIcons.SharedViewModels;
+using MahApps.Metro.IconPacks;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -38,13 +39,15 @@ namespace MahAppIcons.Shared.Views
         {
             base.OnNavigatedTo(e);
 
-            IIconViewModel icon = e.Parameter as IIconViewModel;
-            ViewModel.IconItem = new IconDetailsItem();
-            ViewModel.IconItem.Description = icon.Description;
-            ViewModel.IconItem.IconPackType = icon.IconPackType;
-            ViewModel.IconItem.IconType = icon.IconType;
-            ViewModel.IconItem.Name = icon.Name;
-            ViewModel.IconItem.Value = icon.Value;
+            ViewModel.IconItem = e.Parameter as IIconViewModel;
+            var type = ViewModel.IconItem.IconType.GetElementType();
+            
+            //ViewModel.IconItem = new IconDetailsItem();
+            //ViewModel.IconItem.Description = icon.Description;
+            //ViewModel.IconItem.IconPackType = icon.IconPackType;
+            //ViewModel.IconItem.IconType = icon.IconType;
+            //ViewModel.IconItem.Name = icon.Name;
+            //ViewModel.IconItem.Value = icon.Value;
 
             //ConnectedAnimation imageAnimation = ConnectedAnimationService.GetForCurrentView().GetAnimation("ForwardConnectedAnimation");
             //if (imageAnimation != null)

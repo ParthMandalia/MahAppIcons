@@ -281,7 +281,6 @@ namespace MahAppIcons.SharedViewModels
         Type IconPackType { get; set; }
         Type IconType { get; set; }
         object Value { get; set; }
-
         SolidColorBrush ColorValue { get; set; }
     }
 }

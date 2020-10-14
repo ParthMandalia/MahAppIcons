@@ -16,8 +16,8 @@ namespace MahAppIcons.Shared.ViewModels
 {
     public class IconDetailsViewModel : ViewModelBase
     {
-        private IconDetailsItem _iconitem;
-        public IconDetailsItem IconItem
+        private IIconViewModel _iconitem;
+        public IIconViewModel IconItem
         {
             get { return _iconitem; }
             set { Set(ref _iconitem, value); }
@@ -30,17 +30,17 @@ namespace MahAppIcons.Shared.ViewModels
             set 
             { 
                 Set(ref _test, value);
-                ManageIconColors(_test);
+                //ManageIconColors(_test);
             }
         }
 
-        private async void ManageIconColors(Color color)
-        {
-            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                IconItem.ColorValue = new SolidColorBrush(color);
-            });
-        }
+        //private async void ManageIconColors(Color color)
+        //{
+        //    await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+        //    {
+        //        IconItem.ColorValue = new SolidColorBrush(color);
+        //    });
+        //}
 
 
     }

@@ -36,7 +36,8 @@ namespace MahAppIcons.Shared.Services
                 }
                 else if (parameter.ToString() == "ItemDetail")
                 {
-                    var icon1 = (IconDetailsItem)value;
+                    //var icon1 = (IconDetailsItem)value;
+                    var icon1 = (IIconViewModel)value;
                     if (icon1 != null)
                     {
                         var iconPack = Activator.CreateInstance(icon1.IconPackType) as PackIconControlBase;
