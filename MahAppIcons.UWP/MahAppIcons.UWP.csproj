@@ -17,6 +17,9 @@
       <Version>5.4.1.1</Version>
     </PackageReference>
     <PackageReference Include="Uno.Core" Version="2.0.0" />
+    <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Animations">
+      <Version>6.1.0-build.191.gc988bdd4ff</Version>
+    </PackageReference>
     <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Controls">
       <Version>6.1.0-build.191.gc988bdd4ff</Version>
     </PackageReference>

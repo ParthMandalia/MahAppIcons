@@ -26,11 +26,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\IconPackList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\NavigationServiceEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HomePageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\IconDetailsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\IconPackViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ShellPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\IconDetailsPage.xaml.cs">
+      <DependentUpon>IconDetailsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
@@ -58,6 +62,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\IconDetailsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

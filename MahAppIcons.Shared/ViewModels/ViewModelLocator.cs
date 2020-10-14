@@ -20,10 +20,13 @@ namespace MahAppIcons.Shared.ViewModels
             SimpleIoc.Default.Register(() => new NavigationServiceEx());
             SimpleIoc.Default.Register<ShellPageViewModel>();
             SimpleIoc.Default.Register<IconPackViewModel>();
-            Register<HomePageViewModel, HomePage>();            
+            Register<HomePageViewModel, HomePage>();
+            Register<IconDetailsViewModel, IconDetailsPage>();
         }
 
         public HomePageViewModel HomePageViewModel => SimpleIoc.Default.GetInstance<HomePageViewModel>();
+
+        public IconDetailsViewModel IconDetailsViewModel => SimpleIoc.Default.GetInstance<IconDetailsViewModel>();
 
         public ShellPageViewModel ShellPageViewModel => SimpleIoc.Default.GetInstance<ShellPageViewModel>();
 

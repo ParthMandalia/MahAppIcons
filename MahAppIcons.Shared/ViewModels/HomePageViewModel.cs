@@ -18,7 +18,6 @@ namespace MahAppIcons.Shared.ViewModels
 {
     public class HomePageViewModel : ViewModelBase
     {
-
         public HomePageViewModel()
         {
             Onloaded();

@@ -12,6 +12,7 @@ using System.Windows;
 using System.Windows.Input;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Media;
 
 namespace MahAppIcons.SharedViewModels
 {
@@ -271,5 +272,16 @@ namespace MahAppIcons.SharedViewModels
         public Type IconType { get; set; }
 
         public object Value { get; set; }
+    }
+
+    public interface IIconDetailsItem
+    {
+        string Name { get; set; }
+        string Description { get; set; }
+        Type IconPackType { get; set; }
+        Type IconType { get; set; }
+        object Value { get; set; }
+
+        SolidColorBrush ColorValue { get; set; }
     }
 }

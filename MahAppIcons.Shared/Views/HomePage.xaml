@@ -163,7 +163,7 @@
     <Grid>
         <controls:MasterDetailsView
             x:Name="MasterDetailsControl"
-            BackButtonBehavior="Automatic"
+            BackButtonBehavior="System"
             Background="{ThemeResource CMapUwpAcrylicBrush}"
             CompactModeThresholdWidth="720"
             DetailsHeader="{x:Bind ViewModel.IconPackSelectedItem.Caption, Mode=OneWay}"
@@ -203,7 +203,14 @@
             </controls:MasterDetailsView.ItemTemplate>
             <controls:MasterDetailsView.DetailsTemplate>
                 <DataTemplate>
-                    <GridView ItemsSource="{Binding Icons, Mode=TwoWay}">
+                    <GridView
+                        x:Name="gvwIconsList"
+                        IsItemClickEnabled="True"
+                        ItemClick="gvwIconsList_ItemClick"
+                        ItemsSource="{Binding Icons, Mode=TwoWay}"
+                        Loaded="gbwIconsList_Loaded"
+                        SelectedItem="{Binding SelectedIcon, Mode=TwoWay}"
+                        SelectionMode="None">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <ItemsWrapGrid
@@ -223,142 +230,143 @@
                         </GridView.HeaderTemplate>
                         <GridView.ItemTemplate>
                             <DataTemplate x:DataType="vm1:IIconViewModel">
-                                <StackPanel Orientation="Vertical">
-                                    <ContentControl
-                                        x:Name="IconContent"
-                                        Width="100"
-                                        Height="100"
-                                        HorizontalContentAlignment="Center"
-                                        VerticalContentAlignment="Center"
-                                        Background="Transparent"
-                                        Content="{Binding}"
-                                        IsTabStop="False">
-                                        <Interactivity:Interaction.Behaviors>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconMaterial">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconMaterialDesign">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialDesignKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconMaterialLight">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialLightKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconFontAwesome">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconFontAwesomeKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconOcticons">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialLightKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconPicolIcons">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconPicolIconsKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconRPGAwesome">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconRPGAwesomeKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconMicrons">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMicronsKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconModern">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconModernKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconEntypo">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconEntypoKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconSimpleIcons">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconSimpleIconsKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconWeatherIcons">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconWeatherIconsKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconTypicons">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconTypiconsKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconFeatherIcons">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconFeatherIconsKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconIonicons">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconIoniconsKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconJamIcons">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconJamIconsKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconEvaIcons">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconEvaIconsKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconBoxIcons">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconBoxIconsKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconUnicons">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconUniconsKind}" />
-                                            </Core:DataTriggerBehavior>
-                                            <Core:DataTriggerBehavior
-                                                Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
-                                                ComparisonCondition="Equal"
-                                                Value="PackIconZondicons">
-                                                <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconZondiconsKind}" />
-                                            </Core:DataTriggerBehavior>
-                                        </Interactivity:Interaction.Behaviors>
-                                    </ContentControl>
-                                    <TextBlock Margin="5" Text="{Binding Name}" />
-                                </StackPanel>
-
+                                <Grid>
+                                    <StackPanel x:Name="IconContentTemplate" Orientation="Vertical">
+                                        <ContentControl
+                                            x:Name="IconContent"
+                                            Width="100"
+                                            Height="100"
+                                            HorizontalContentAlignment="Center"
+                                            VerticalContentAlignment="Center"
+                                            Background="Transparent"
+                                            Content="{Binding}"
+                                            IsTabStop="False">
+                                            <Interactivity:Interaction.Behaviors>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconMaterial">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconMaterialDesign">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialDesignKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconMaterialLight">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialLightKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconFontAwesome">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconFontAwesomeKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconOcticons">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialLightKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconPicolIcons">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconPicolIconsKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconRPGAwesome">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconRPGAwesomeKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconMicrons">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMicronsKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconModern">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconModernKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconEntypo">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconEntypoKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconSimpleIcons">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconSimpleIconsKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconWeatherIcons">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconWeatherIconsKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconTypicons">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconTypiconsKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconFeatherIcons">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconFeatherIconsKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconIonicons">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconIoniconsKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconJamIcons">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconJamIconsKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconEvaIcons">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconEvaIconsKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconBoxIcons">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconBoxIconsKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconUnicons">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconUniconsKind}" />
+                                                </Core:DataTriggerBehavior>
+                                                <Core:DataTriggerBehavior
+                                                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                                                    ComparisonCondition="Equal"
+                                                    Value="PackIconZondicons">
+                                                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconZondiconsKind}" />
+                                                </Core:DataTriggerBehavior>
+                                            </Interactivity:Interaction.Behaviors>
+                                        </ContentControl>
+                                        <TextBlock Margin="5" Text="{Binding Name}" />
+                                    </StackPanel>
+                                </Grid>
                             </DataTemplate>
                         </GridView.ItemTemplate>
                     </GridView>

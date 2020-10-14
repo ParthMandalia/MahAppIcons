@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -11,6 +11,7 @@ namespace MahAppIcons.Shared.Services
 {
     public class NavigationServiceEx
     {
+        public SystemNavigationManager CurrentviewBackManager;
         public event NavigatedEventHandler Navigated;
 
         public event NavigationFailedEventHandler NavigationFailed;
@@ -28,8 +29,9 @@ namespace MahAppIcons.Shared.Services
                 {
                     _frame = Window.Current.Content as Frame;
                     RegisterFrameEvents();
+                    RegisterSystemNavigationManager();
+                    ManageBackButton();
                 }
-
                 return _frame;
             }
 
@@ -39,6 +41,27 @@ namespace MahAppIcons.Shared.Services
                 _frame = value;
                 RegisterFrameEvents();
             }
+        }
+
+        private void RegisterSystemNavigationManager()
+        {
+            CurrentviewBackManager = SystemNavigationManager.GetForCurrentView();
+            CurrentviewBackManager.BackRequested += CurrentviewBackManager_BackRequested;
+        }
+
+        private void CurrentviewBackManager_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            if (CanGoBack)
+                GoBack();
+            ManageBackButton();
+        }
+
+        private void ManageBackButton()
+        {
+                if (CanGoBack)
+                    CurrentviewBackManager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+                else
+                    CurrentviewBackManager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
 
         public bool CanGoBack => Frame.CanGoBack;
@@ -72,6 +95,7 @@ namespace MahAppIcons.Shared.Services
             if (Frame.Content?.GetType() != page || (parameter != null && !parameter.Equals(_lastParamUsed)))
             {
                 var navigationResult = Frame.Navigate(page, parameter, infoOverride);
+                ManageBackButton();
                 if (navigationResult)
                 {
                     _lastParamUsed = parameter;
