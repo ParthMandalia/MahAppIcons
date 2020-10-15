@@ -5,6 +5,7 @@ using MahAppIcons.SharedViewModels;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -43,9 +44,9 @@ namespace MahAppIcons.Shared.Views
             this.InitializeComponent();
         }
 
-        private async void gbwIconsList_Loaded(object sender, RoutedEventArgs e)
+        private void gbwIconsList_Loaded(object sender, RoutedEventArgs e)
         {
-            var gridviewcontrol = FindControl<GridView>(MasterDetailsControl, typeof(GridView), "gvwIconsList");
+            var gridviewcontrol = IconPackList.FindControl<GridView>(MasterDetailsControl, typeof(GridView), "gvwIconsList");
             ///TODO: Connected Animations is not supported in Uwp. Will enable connected animations after Uno support
             //if (_storeditem != null)
             //{
@@ -73,7 +74,7 @@ namespace MahAppIcons.Shared.Views
             try
             {
                 _storeditem = (IIconViewModel)e.ClickedItem;
-                var gridviewcontrol = FindControl<GridView>(MasterDetailsControl, typeof(GridView), "gvwIconsList");
+                var gridviewcontrol = IconPackList.FindControl<GridView>(MasterDetailsControl, typeof(GridView), "gvwIconsList");
                 if (gridviewcontrol != null)
                 {
                     //if (gridviewcontrol.ContainerFromItem(e.ClickedItem) is GridViewItem container)
@@ -84,7 +85,7 @@ namespace MahAppIcons.Shared.Views
                     //    var animation = gridviewcontrol.PrepareConnectedAnimation("ForwardConnectedAnimation", _storeditem, "IconContentTemplate");
                     //}
                     //TODO: SuppressNavigationTransitionInfo() after connected animation is enabled.
-                    ViewModelLocator.Current.NavigationService.Navigate(typeof(IconDetailsViewModel).FullName, _storeditem, new DrillInNavigationTransitionInfo());
+                    ViewModelLocator.Current.NavigationService.Navigate(typeof(IconDetailsViewModel).FullName, _storeditem, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
                 }
 
             }
@@ -92,30 +93,6 @@ namespace MahAppIcons.Shared.Views
             {
                 throw ex;
             }
-        }
-
-        public static T FindControl<T>(UIElement parent, Type targetType, string ControlName) where T : FrameworkElement
-        {
-
-            if (parent == null) return null;
-
-            if (parent.GetType() == targetType && ((T)parent).Name == ControlName)
-            {
-                return (T)parent;
-            }
-            T result = null;
-            int count = VisualTreeHelper.GetChildrenCount(parent);
-            for (int i = 0; i < count; i++)
-            {
-                UIElement child = (UIElement)VisualTreeHelper.GetChild(parent, i);
-
-                if (FindControl<T>(child, targetType, ControlName) != null)
-                {
-                    result = FindControl<T>(child, targetType, ControlName);
-                    break;
-                }
-            }
-            return result;
         }
     }
 }

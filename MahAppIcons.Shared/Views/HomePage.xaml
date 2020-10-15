@@ -221,11 +221,28 @@
                         </ItemsControl.ItemsPanel>
                         <GridView.HeaderTemplate>
                             <DataTemplate x:DataType="vm1:IconPackViewModel">
-                                <TextBox
-                                    Margin="10"
-                                    HorizontalAlignment="Stretch"
-                                    PlaceholderText="Search"
-                                    Text="{Binding FilterText, Mode=TwoWay}" />
+                                <Grid>
+                                    <TextBox
+                                        x:Name="txtFilterText"
+                                        Margin="10"
+                                        HorizontalAlignment="Stretch"
+                                        Background="Transparent"
+                                        BorderBrush="{ThemeResource ButtonForegroundThemeBrush}"
+                                        BorderThickness="0,0,0,2"
+                                        CornerRadius="15"
+                                        PlaceholderText="Search"
+                                        Text="{Binding FilterText, Mode=TwoWay}">
+                                        <TextBox.KeyboardAccelerators>
+                                            <KeyboardAccelerator Key="Enter">
+                                                <Interactivity:Interaction.Behaviors>
+                                                    <Core:EventTriggerBehavior EventName="Invoked">
+                                                        <Core:InvokeCommandAction Command="{x:Bind FilterEnterPressed}" CommandParameter="{Binding ElementName=txtFilterText, Path=Text}" />
+                                                    </Core:EventTriggerBehavior>
+                                                </Interactivity:Interaction.Behaviors>
+                                            </KeyboardAccelerator>
+                                        </TextBox.KeyboardAccelerators>
+                                    </TextBox>
+                                </Grid>
                             </DataTemplate>
                         </GridView.HeaderTemplate>
                         <GridView.ItemTemplate>
@@ -390,7 +407,10 @@
             <controls:MasterDetailsView.MasterCommandBar>
                 <CommandBar>
                     <!--<AppBarButton Icon="Account" Label="Back" />-->
-                    <AppBarButton Icon="Setting" Label="Settings" />
+                    <AppBarButton
+                        Command="{x:Bind ViewModel.SettingsPageClick}"
+                        Icon="Setting"
+                        Label="Settings" />
 
                     <CommandBar.Content>
                         <TextBlock Margin="12,14">

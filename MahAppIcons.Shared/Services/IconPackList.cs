@@ -6,22 +6,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
 
 namespace MahAppIcons.Shared.Services
 {
     public class IconPackList
     {
-        
+
         public static async Task<ObservableCollection<IconPackViewModel>> CreateIconPackList(HomePageViewModel vm, ObservableCollection<IconPackViewModel> collection = null)
         {
-                 collection = new ObservableCollection<IconPackViewModel>(
-                 new[]
-                 {
+            collection = new ObservableCollection<IconPackViewModel>(
+            new[]
+            {
                      new IconPackViewModel(vm,"All",
                         new[]
                         {
@@ -89,10 +91,133 @@ namespace MahAppIcons.Shared.Services
                     new IconPackViewModel(vm,"Unicons", typeof(PackIconUniconsKind), typeof(PackIconUnicons)),
                     new IconPackViewModel(vm,"WeatherIcons", typeof(PackIconWeatherIconsKind), typeof(PackIconWeatherIcons)),
                     new IconPackViewModel(vm,"Zondicons", typeof(PackIconZondiconsKind), typeof(PackIconZondicons))
-                 });
+            });
             return await Task.FromResult(collection);
         }
 
+        public static string GetPathIconFromIconPack(Type enumType, Type packType, Enum k)
+        {
+            try
+            {
+                string data = string.Empty;
+                if (enumType.Name == "PackIconBoxIconsKind")
+                {
+                    PackIconBoxIconsDataFactory.DataIndex.Value?.TryGetValue((PackIconBoxIconsKind)k, out data);
+                    return data;
+                }
+                if (enumType.Name == "PackIconEntypoKind")
+                {
+                    PackIconEntypoDataFactory.DataIndex.Value?.TryGetValue((PackIconEntypoKind)k, out data);
+                    return data;
+                }
+                if (enumType.Name == "PackIconEvaIconsKind")
+                {
+                    PackIconEvaIconsDataFactory.DataIndex.Value?.TryGetValue((PackIconEvaIconsKind)k, out data);
+                    return data;
+                }
+                if (enumType.Name == "PackIconFeatherIconsKind")
+                {
+                    PackIconFeatherIconsDataFactory.DataIndex.Value?.TryGetValue((PackIconFeatherIconsKind)k, out data);
+                    return data;
+                }
+                if (enumType.Name == "PackIconFontAwesomeKind")
+                {
+                    PackIconFontAwesomeDataFactory.DataIndex.Value?.TryGetValue((PackIconFontAwesomeKind)k, out data);
+                    return data;
+                }
+                if (enumType.Name == "PackIconIoniconsKind")
+                {
+                    PackIconIoniconsDataFactory.DataIndex.Value?.TryGetValue((PackIconIoniconsKind)k, out data);
+                    return data;
+                }
+                if (enumType.Name == "PackIconJamIconsKind")
+                {
+                    PackIconJamIconsDataFactory.DataIndex.Value?.TryGetValue((PackIconJamIconsKind)k, out data);
+                    return data;
+                }
+                //if (this.Kind is PackIconMaterialKind)
+                //{
+                //    return this.GetPackIcon<PackIconMaterial, PackIconMaterialKind>((PackIconMaterialKind)this.Kind);
+                //}
+                //if (this.Kind is PackIconMaterialDesignKind)
+                //{
+                //    return this.GetPackIcon<PackIconMaterialDesign, PackIconMaterialDesignKind>((PackIconMaterialDesignKind)this.Kind);
+                //}
+                //if (this.Kind is PackIconMaterialLightKind)
+                //{
+                //    return this.GetPackIcon<PackIconMaterialLight, PackIconMaterialLightKind>((PackIconMaterialLightKind)this.Kind);
+                //}
+                //if (this.Kind is PackIconMicronsKind)
+                //{
+                //    return this.GetPackIcon<PackIconMicrons, PackIconMicronsKind>((PackIconMicronsKind)this.Kind);
+                //}
+                //if (this.Kind is PackIconModernKind)
+                //{
+                //    return this.GetPackIcon<PackIconModern, PackIconModernKind>((PackIconModernKind)this.Kind);
+                //}
+                //if (this.Kind is PackIconOcticonsKind)
+                //{
+                //    return this.GetPackIcon<PackIconOcticons, PackIconOcticonsKind>((PackIconOcticonsKind)this.Kind);
+                //}
+                //if (this.Kind is PackIconPicolIconsKind)
+                //{
+                //    return this.GetPackIcon<PackIconPicolIcons, PackIconPicolIconsKind>((PackIconPicolIconsKind)this.Kind);
+                //}
+                //if (this.Kind is PackIconRPGAwesomeKind)
+                //{
+                //    return this.GetPackIcon<PackIconRPGAwesome, PackIconRPGAwesomeKind>((PackIconRPGAwesomeKind)this.Kind);
+                //}
+                //if (this.Kind is PackIconSimpleIconsKind)
+                //{
+                //    return this.GetPackIcon<PackIconSimpleIcons, PackIconSimpleIconsKind>((PackIconSimpleIconsKind)this.Kind);
+                //}
+                //if (this.Kind is PackIconTypiconsKind)
+                //{
+                //    return this.GetPackIcon<PackIconTypicons, PackIconTypiconsKind>((PackIconTypiconsKind)this.Kind);
+                //}
+                //if (this.Kind is PackIconUniconsKind)
+                //{
+                //    return this.GetPackIcon<PackIconUnicons, PackIconUniconsKind>((PackIconUniconsKind)this.Kind);
+                //}
+                //if (this.Kind is PackIconWeatherIconsKind)
+                //{
+                //    return this.GetPackIcon<PackIconWeatherIcons, PackIconWeatherIconsKind>((PackIconWeatherIconsKind)this.Kind);
+                //}
+                //if (this.Kind is PackIconZondiconsKind)
+                //{
+                //    return this.GetPackIcon<PackIconZondicons, PackIconZondiconsKind>((PackIconZondiconsKind)this.Kind);
+                //}
+                return data;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static T FindControl<T>(UIElement parent, Type targetType, string ControlName) where T : FrameworkElement
+        {
+
+            if (parent == null) return null;
+
+            if (parent.GetType() == targetType && ((T)parent).Name == ControlName)
+            {
+                return (T)parent;
+            }
+            T result = null;
+            int count = VisualTreeHelper.GetChildrenCount(parent);
+            for (int i = 0; i < count; i++)
+            {
+                UIElement child = (UIElement)VisualTreeHelper.GetChild(parent, i);
+
+                if (FindControl<T>(child, targetType, ControlName) != null)
+                {
+                    result = FindControl<T>(child, targetType, ControlName);
+                    break;
+                }
+            }
+            return result;
+        }
     }
 
 }

@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using MahAppIcons.Shared.Services;
 using MahAppIcons.SharedViewModels;
 using MahApps.Metro.IconPacks;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using Windows.Storage.Search;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media.Animation;
 
 namespace MahAppIcons.Shared.ViewModels
 {
@@ -39,6 +41,14 @@ namespace MahAppIcons.Shared.ViewModels
         {
             get { return _iconpackselecteditem; }
             set { Set(ref _iconpackselecteditem, value); }
+        }
+
+        private ICommand _settingspageclick;
+        public ICommand SettingsPageClick => _settingspageclick ?? (_settingspageclick = new RelayCommand(SettingsPageNav));
+
+        private void SettingsPageNav()
+        {
+            ViewModelLocator.Current.NavigationService.Navigate(typeof(SettingsViewModel).FullName, null, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
         }
 
     }

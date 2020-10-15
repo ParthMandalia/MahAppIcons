@@ -1,5 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
+using MahAppIcons.Shared.Services;
 using MahAppIcons.Shared.ViewModels;
 using System;
 using System.Collections;
@@ -66,14 +68,14 @@ namespace MahAppIcons.SharedViewModels
 
         private void FilterData()
         {
-            if(SelectedIcon != null && !string.IsNullOrEmpty(FilterText))
+            if(!string.IsNullOrEmpty(FilterText))
             {
-                Icons = Icons.Where(a => (a.Name.ToString().ToLower().Contains(FilterText.ToLower())));
+                Icons = IconList.Where(a => (a.Name.ToString().ToLower().Contains(FilterText.ToLower())));
                 //Icons = Icons.Where(a => (a.Name.ToString().Contains(FilterText)) || (a.Description.ToString().Contains(FilterText))).ToList();
             }
             else
             {
-                Icons = _iconlist;
+                Icons = IconList;
             }
         }
 
@@ -130,6 +132,7 @@ namespace MahAppIcons.SharedViewModels
 
         private static IIconViewModel GetIconViewModel(Type enumType, Type packType, Enum k)
         {
+            //string path = IconPackList.GetPathIconFromIconPack(enumType, packType, k);
             var description = GetDescription(k);
             return new IconViewModel()
             {
@@ -137,7 +140,8 @@ namespace MahAppIcons.SharedViewModels
                 Description = description,
                 IconPackType = packType,
                 IconType = enumType,
-                Value = k
+                Value = k,
+                //Path = path
             };
         }
 
@@ -181,6 +185,14 @@ namespace MahAppIcons.SharedViewModels
             get { return _selectedIcon; }
             set { Set(ref _selectedIcon, value); }
         }
+
+        private ICommand _filterenterpressed;
+        public ICommand FilterEnterPressed => _filterenterpressed ?? (_filterenterpressed = new RelayCommand(FilterQueryData));
+
+        private void FilterQueryData()
+        {
+           
+        }
     }
 
     public interface IIconViewModel
@@ -190,6 +202,8 @@ namespace MahAppIcons.SharedViewModels
         Type IconPackType { get; set; }
         Type IconType { get; set; }
         object Value { get; set; }
+
+        //string Path { get; set; }
     }
 
     public class IconViewModel : ViewModelBase, IIconViewModel
@@ -272,6 +286,8 @@ namespace MahAppIcons.SharedViewModels
         public Type IconType { get; set; }
 
         public object Value { get; set; }
+
+        //public string Path { get; set; }
     }
 
     public interface IIconDetailsItem

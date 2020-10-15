@@ -15,16 +15,6 @@
 
     <Page.Resources>
         <service:IconHelperConverter x:Key="Iconhelperconverter" />
-        <Style x:Key="PackIconBoxIconsStyle" TargetType="icon:PackIconBoxIcons">
-            <Setter Property="Width" Value="100" />
-            <Setter Property="Height" Value="100" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Foreground" Value="{Binding ElementName=clrpkrColor, Path=Color}">
-                <!--<Setter.Value>
-                    <SolidColorBrush Color="{x:Bind ViewModel.Test, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                </Setter.Value>-->
-            </Setter>
-        </Style>
 
         <DataTemplate x:Key="PackIconMaterialKind" x:DataType="vm1:IIconViewModel">
             <icon:PackIconMaterial
@@ -171,13 +161,37 @@
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 Stretch="UniformToFill" />-->
-        <RelativePanel Margin="20">
-            <StackPanel x:Name="stkColorpickerpanel">
+        <RelativePanel x:Name="RelativePanelParent" Margin="20">
+            <Viewbox x:Name="stkColorpickerpanel" Width="250">
                 <ColorPicker
                     x:Name="clrpkrColor"
+                    ColorChanged="clrpkrColor_Changed"
                     ColorSpectrumShape="Ring"
-                    Color="{x:Bind ViewModel.Test, Mode=TwoWay}" />
-            </StackPanel>
+                    Color="{ThemeResource SystemAccentColor}">
+                    <ColorPicker.Triggers>
+                        <EventTrigger>
+                            <BeginStoryboard>
+                                <Storyboard x:Name="ChangeIconColorAnimation">
+                                    <ColorAnimation
+                                        Storyboard.TargetName="IconContent"
+                                        Storyboard.TargetProperty="(IconContent.Foreground).(SolidColorBrush.Color)"
+                                        From="{x:Bind clrpkrColor.PreviousColor}"
+                                        To="{x:Bind clrpkrColor.Color}"
+                                        Duration="0:0:001" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ColorPicker.Triggers>
+                </ColorPicker>
+                <!--<Border>
+                    <Path
+                        Width="100"
+                        Height="100"
+                        Data="{x:Bind ViewModel.IconItem.Path}"
+                        Fill="{ThemeResource DefaultTextForegroundThemeBrush}"
+                        Stretch="Uniform" />
+                </Border>-->
+            </Viewbox>
             <StackPanel
                 x:Name="IconContentTemplate"
                 Margin="10,0"

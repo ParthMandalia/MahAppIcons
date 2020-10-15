@@ -1,10 +1,12 @@
-﻿using MahAppIcons.Shared.ViewModels;
+﻿using MahAppIcons.Shared.Services;
+using MahAppIcons.Shared.ViewModels;
 using MahAppIcons.SharedViewModels;
 using MahApps.Metro.IconPacks;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -40,8 +42,10 @@ namespace MahAppIcons.Shared.Views
             base.OnNavigatedTo(e);
 
             ViewModel.IconItem = e.Parameter as IIconViewModel;
-            var type = ViewModel.IconItem.IconType.GetElementType();
-            
+            //PackIconBoxIconsDataFactory.DataIndex.Value?.TryGetValue(boxIconsKind, out data);
+
+            //bool itemupdate = await ViewModel.GetUIelement(ViewModel.IconItem, RelativePanelParent);
+            //this.UpdateLayout();
             //ViewModel.IconItem = new IconDetailsItem();
             //ViewModel.IconItem.Description = icon.Description;
             //ViewModel.IconItem.IconPackType = icon.IconPackType;
@@ -62,6 +66,18 @@ namespace MahAppIcons.Shared.Views
         {
             base.OnNavigatedFrom(e);
             //ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("BackConnectedAnimation", TestThumbnailitem);
+        }
+
+        private void clrpkrColor_Changed(ColorPicker sender, ColorChangedEventArgs args)
+        {
+            try
+            {
+                sender.PreviousColor = sender.Color;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

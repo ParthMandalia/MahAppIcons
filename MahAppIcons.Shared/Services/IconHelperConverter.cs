@@ -20,23 +20,15 @@ namespace MahAppIcons.Shared.Services
                     var icon = (IIconViewModel)value;
                     if (icon != null)
                     {
-                        var iconPack = Activator.CreateInstance(icon.IconPackType) as PackIconControlBase;
-                        if (iconPack != null)
+                        if (icon.IconPackType != null)
                         {
                             value = icon.IconPackType.Name;
-                            //var kindProperty = icon.IconPackType.GetProperty("Name");
-                            //if (kindProperty != null)
-                            //{
-                            //    kindProperty.SetValue(iconPack, icon.Value);
-                            //    value = kindProperty;
-                            //}
                             return value;
                         }
                     }
                 }
                 else if (parameter.ToString() == "ItemDetail")
                 {
-                    //var icon1 = (IconDetailsItem)value;
                     var icon1 = (IIconViewModel)value;
                     if (icon1 != null)
                     {

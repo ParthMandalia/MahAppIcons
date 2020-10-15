@@ -22,12 +22,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\ActivationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DataTemplateSelectionHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DefaultActivationHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\EnumToBooleanConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IconHelperConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IconPackList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\NavigationServiceEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\SettingsStorageExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ThemeSelectorService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HomePageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\IconDetailsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\IconPackViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SettingsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ShellPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModelLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\HomePage.xaml.cs">
@@ -35,6 +39,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\IconDetailsPage.xaml.cs">
       <DependentUpon>IconDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
@@ -66,6 +73,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\IconDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,6 +1,8 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using MahAppIcons.Shared.Services;
 using MahAppIcons.SharedViewModels;
+using MahApps.Metro.IconPacks;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,41 +12,46 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI;
 using Windows.UI.Core;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 
 namespace MahAppIcons.Shared.ViewModels
 {
     public class IconDetailsViewModel : ViewModelBase
     {
+
+        public IconDetailsViewModel()
+        {
+
+        }
         private IIconViewModel _iconitem;
         public IIconViewModel IconItem
         {
             get { return _iconitem; }
-            set { Set(ref _iconitem, value); }
+            set
+            {
+                Set(ref _iconitem, value);
+            }
         }
 
         private Color _test;
         public Color Test
         {
             get { return _test; }
-            set 
-            { 
-                Set(ref _test, value);
-                //ManageIconColors(_test);
-            }
+            set { Set(ref _test, value); }
         }
-
-        //private async void ManageIconColors(Color color)
-        //{
-        //    await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-        //    {
-        //        IconItem.ColorValue = new SolidColorBrush(color);
-        //    });
-        //}
-
 
     }
 
+
+    public class IconDetailsSettings
+    {
+        public double IconSize { get; set; }
+        public SolidColorBrush ForegroundBrush { get; set; }
+
+    }
     public class IconDetailsItem : ViewModelBase, IIconDetailsItem
     {
         public string Name { get; set; }
