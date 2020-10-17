@@ -2,11 +2,14 @@
 using MahAppIcons.Shared.ViewModels;
 using MahAppIcons.SharedViewModels;
 using MahApps.Metro.IconPacks;
+using Porrey.Controls.ColorPicker;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -27,8 +30,10 @@ namespace MahAppIcons.Shared.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class IconDetailsPage : Page
+    public sealed partial class IconDetailsPage : Page, INotifyPropertyChanged
     {
+        public SolidColorBrush SelectedColor => this.ColorPicker.SelectedColor;
+        public event PropertyChangedEventHandler PropertyChanged;
         private IconDetailsViewModel ViewModel
         {
             get { return ViewModelLocator.Current.IconDetailsViewModel; }
@@ -37,11 +42,13 @@ namespace MahAppIcons.Shared.Views
         {
             this.InitializeComponent();
         }
+
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-            ViewModel.IconItem = e.Parameter as IIconViewModel;
+            ViewModel.IconItem = e.Parameter as IconViewModel;
             //PackIconBoxIconsDataFactory.DataIndex.Value?.TryGetValue(boxIconsKind, out data);
 
             //bool itemupdate = await ViewModel.GetUIelement(ViewModel.IconItem, RelativePanelParent);
@@ -78,6 +85,16 @@ namespace MahAppIcons.Shared.Views
             {
                 throw ex;
             }
+        }
+
+        protected void RaisedPropertyChangedEvent([CallerMemberName] string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void ColorPicker_SelectedColorChanged(object sender, ValueChangedEventArgs<SolidColorBrush> e)
+        {
+            this.RaisedPropertyChangedEvent(nameof(this.SelectedColor));
         }
     }
 }

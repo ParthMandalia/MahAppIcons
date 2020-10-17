@@ -152,7 +152,7 @@ namespace MahAppIcons.SharedViewModels
         public IEnumerable<IIconViewModel> Icons
         {
             get { return _icons; }
-            set { Set(ref _icons, value); }
+            set { Set(ref _icons, value);}
         }
 
         public IEnumerable<IIconViewModel> IconList
@@ -174,7 +174,7 @@ namespace MahAppIcons.SharedViewModels
             {
                 if (Set(ref _filterText, value))
                 {
-                    FilterData();
+                    ///FilterData();
                     //this._iconsCollectionView.Refresh();
                 }
             }
@@ -187,12 +187,8 @@ namespace MahAppIcons.SharedViewModels
         }
 
         private ICommand _filterenterpressed;
-        public ICommand FilterEnterPressed => _filterenterpressed ?? (_filterenterpressed = new RelayCommand(FilterQueryData));
+        public ICommand FilterEnterPressed => _filterenterpressed ?? (_filterenterpressed = new RelayCommand(FilterData));
 
-        private void FilterQueryData()
-        {
-           
-        }
     }
 
     public interface IIconViewModel
@@ -288,15 +284,5 @@ namespace MahAppIcons.SharedViewModels
         public object Value { get; set; }
 
         //public string Path { get; set; }
-    }
-
-    public interface IIconDetailsItem
-    {
-        string Name { get; set; }
-        string Description { get; set; }
-        Type IconPackType { get; set; }
-        Type IconType { get; set; }
-        object Value { get; set; }
-        SolidColorBrush ColorValue { get; set; }
     }
 }

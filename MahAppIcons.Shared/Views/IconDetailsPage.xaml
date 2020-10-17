@@ -4,335 +4,145 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:colorpicker="using:Porrey.Controls.ColorPicker"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:icon="using:MahApps.Metro.IconPacks"
     xmlns:local="using:MahAppIcons.Shared.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:service="using:MahAppIcons.Shared.Services"
+    xmlns:uc="using:MahAppIcons.Shared.UserControls"
     xmlns:vm1="using:MahAppIcons.SharedViewModels"
     Background="{ThemeResource CMapUwpAcrylicBrush}"
     mc:Ignorable="d">
 
     <Page.Resources>
-        <service:IconHelperConverter x:Key="Iconhelperconverter" />
-
-        <DataTemplate x:Key="PackIconMaterialKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconMaterial
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconMaterialDesignKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconMaterialDesign
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconMaterialLightKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconMaterialLight
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconFontAwesomeKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconFontAwesome
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconOcticonsKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconOcticons
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconPicolIconsKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconPicolIcons
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconRPGAwesomeKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconRPGAwesome
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconMicronsKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconMicrons
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconModernKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconModern
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconEntypoKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconEntypo
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconSimpleIconsKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconSimpleIcons
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconWeatherIconsKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconWeatherIcons
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconTypiconsKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconTypicons
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconFeatherIconsKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconFeatherIcons
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconIoniconsKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconIonicons
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconJamIconsKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconJamIcons
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconEvaIconsKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconEvaIcons
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconBoxIconsKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconBoxIcons Kind="{Binding Value, Mode=OneWay}" Style="{StaticResource PackIconBoxIconsStyle}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconUniconsKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconUnicons
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
-        <DataTemplate x:Key="PackIconZondiconsKind" x:DataType="vm1:IIconViewModel">
-            <icon:PackIconZondicons
-                Width="100"
-                Height="100"
-                BorderThickness="1"
-                Kind="{Binding Value, Mode=OneWay}" />
-        </DataTemplate>
+        <service:DoubleToPercentConverter x:Key="DoubleToPercentConverter" />
+        <service:DoubleToStringPercentConverter x:Key="DoubleToStringPercentConverter" />
+        <service:PercentToDoubleConverter x:Key="PercentToDoubleConverter" />
     </Page.Resources>
 
-    <Grid>
-        <!--  Uncomment Referenced UI Element for Connected Animation  -->
-        <!--<Image
+    <ScrollViewer>
+        <Grid>
+            <!--  Uncomment Referenced UI Element for Connected Animation  -->
+            <!--<Image
                 x:Name="TestThumbnailitem"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
                 Stretch="UniformToFill" />-->
-        <RelativePanel x:Name="RelativePanelParent" Margin="20">
-            <Viewbox x:Name="stkColorpickerpanel" Width="250">
-                <ColorPicker
-                    x:Name="clrpkrColor"
-                    ColorChanged="clrpkrColor_Changed"
-                    ColorSpectrumShape="Ring"
-                    Color="{ThemeResource SystemAccentColor}">
-                    <ColorPicker.Triggers>
-                        <EventTrigger>
-                            <BeginStoryboard>
-                                <Storyboard x:Name="ChangeIconColorAnimation">
-                                    <ColorAnimation
-                                        Storyboard.TargetName="IconContent"
-                                        Storyboard.TargetProperty="(IconContent.Foreground).(SolidColorBrush.Color)"
-                                        From="{x:Bind clrpkrColor.PreviousColor}"
-                                        To="{x:Bind clrpkrColor.Color}"
-                                        Duration="0:0:001" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </ColorPicker.Triggers>
-                </ColorPicker>
-                <!--<Border>
-                    <Path
-                        Width="100"
-                        Height="100"
-                        Data="{x:Bind ViewModel.IconItem.Path}"
-                        Fill="{ThemeResource DefaultTextForegroundThemeBrush}"
-                        Stretch="Uniform" />
-                </Border>-->
-            </Viewbox>
-            <StackPanel
-                x:Name="IconContentTemplate"
-                Margin="10,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Orientation="Vertical"
-                RelativePanel.RightOf="stkColorpickerpanel">
-                <ContentControl
-                    x:Name="IconContent"
-                    Width="150"
-                    Height="150"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    Background="Transparent"
-                    Content="{x:Bind ViewModel.IconItem}"
-                    IsTabStop="False">
-                    <Interactivity:Interaction.Behaviors>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconMaterial">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconMaterialDesign">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialDesignKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconMaterialLight">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialLightKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconFontAwesome">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconFontAwesomeKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconOcticons">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialLightKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconPicolIcons">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconPicolIconsKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconRPGAwesome">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconRPGAwesomeKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconMicrons">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMicronsKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconModern">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconModernKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconEntypo">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconEntypoKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconSimpleIcons">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconSimpleIconsKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconWeatherIcons">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconWeatherIconsKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconTypicons">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconTypiconsKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconFeatherIcons">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconFeatherIconsKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconIonicons">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconIoniconsKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconJamIcons">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconJamIconsKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconEvaIcons">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconEvaIconsKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconBoxIcons">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconBoxIconsKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconUnicons">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconUniconsKind}" />
-                        </Core:DataTriggerBehavior>
-                        <Core:DataTriggerBehavior
-                            Binding="{x:Bind ViewModel.IconItem, Converter={StaticResource Iconhelperconverter}, ConverterParameter=ItemDetail}"
-                            ComparisonCondition="Equal"
-                            Value="PackIconZondicons">
-                            <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconZondiconsKind}" />
-                        </Core:DataTriggerBehavior>
-                    </Interactivity:Interaction.Behaviors>
-                </ContentControl>
-                <TextBlock Margin="5" Text="{x:Bind ViewModel.IconItem.Name}" />
-            </StackPanel>
-        </RelativePanel>
-    </Grid>
+            <RelativePanel x:Name="RelativePanelParent" Margin="20">
+                <RelativePanel x:Name="stkcolorpickerpanel">
+                    <StackPanel Width="440" Orientation="Vertical">
+                        <colorpicker:ColorPickerWheel
+                            x:Name="ColorPicker"
+                            Width="400"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="{ThemeResource CMapUwpAcrylicBrush}"
+                            BorderBrush="#99000000"
+                            BorderThickness="3"
+                            Brightness="1.0"
+                            Hue="0"
+                            IndicatorBackground="{StaticResource ButtonBackground}"
+                            IndicatorOffset="10"
+                            InnerDiameter=".45"
+                            IsEnabled="True"
+                            Saturation="1.0"
+                            SelectedColorChanged="ColorPicker_SelectedColorChanged">
+                            <colorpicker:ColorPickerWheel.Content>
+                                <uc:IconContentControl
+                                    Width="{Binding ElementName=ColorPicker, Path=ActualInnerDiameter}"
+                                    Height="{Binding ElementName=ColorPicker, Path=ActualInnerDiameter}"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    DataContext="{x:Bind ViewModel.IconItem}"
+                                    Foreground="{Binding ElementName=ColorPicker, Path=SelectedColor}" />
+                            </colorpicker:ColorPickerWheel.Content>
+                        </colorpicker:ColorPickerWheel>
+                        <Grid Margin="10" Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="1*" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontWeight="Bold"
+                                Text="Brightness" />
+
+                            <Slider
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Margin="5"
+                                Background="{ThemeResource ButtonBackgroundThemeBrush}"
+                                Maximum="100"
+                                Minimum="0"
+                                Value="{Binding ElementName=ColorPicker, Path=Brightness, Mode=TwoWay, Converter={StaticResource DoubleToPercentConverter}}" />
+
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Margin="5"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontWeight="Light"
+                                Text="{Binding ElementName=ColorPicker, Path=Brightness, Mode=OneWay, Converter={StaticResource DoubleToStringPercentConverter}}" />
+
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Margin="5"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontWeight="Bold"
+                                Text="Saturation" />
+
+                            <Slider
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Margin="5"
+                                Maximum="100"
+                                Minimum="0"
+                                Value="{Binding ElementName=ColorPicker, Path=Saturation, Mode=TwoWay, Converter={StaticResource DoubleToPercentConverter}}" />
+
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Margin="5"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontWeight="Light"
+                                Text="{Binding ElementName=ColorPicker, Path=Saturation, Mode=OneWay, Converter={StaticResource DoubleToStringPercentConverter}}" />
+                        </Grid>
+                    </StackPanel>
+                </RelativePanel>
+
+                <StackPanel
+                    x:Name="IconContentTemplate"
+                    Margin="10,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Orientation="Vertical"
+                    RelativePanel.RightOf="stkcolorpickerpanel">
+                    <uc:IconContentControl
+                        Width="{Binding ElementName=ColorPicker, Path=ActualInnerDiameter}"
+                        Height="{Binding ElementName=ColorPicker, Path=ActualInnerDiameter}"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        DataContext="{x:Bind ViewModel.IconItem}"
+                        Foreground="{Binding ElementName=ColorPicker, Path=SelectedColor}" />
+                    <TextBlock Margin="5" Text="{x:Bind ViewModel.IconItem.Name}" />
+                </StackPanel>
+            </RelativePanel>
+        </Grid>
+    </ScrollViewer>
 </Page>

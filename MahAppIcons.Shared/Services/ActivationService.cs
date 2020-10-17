@@ -32,7 +32,7 @@ namespace MahAppIcons.Shared.Services
             {
                 // Initialize services that you need before app activation
                 // take into account that the splash screen is shown while this code runs.
-                await InitializeAsync();
+                InitializeAsync();
 
                 // Do not repeat app initialization when the Window already has content,
                 // just ensure that the window is active
@@ -58,9 +58,9 @@ namespace MahAppIcons.Shared.Services
             }
         }
 
-        private async Task InitializeAsync()
+        private void InitializeAsync()
         {
-            //await ThemeSelectorService.InitializeAsync().ConfigureAwait(false);
+            ThemeSelectorService.InitializeAsync();
         }
 
         private async Task HandleActivationAsync(object activationArgs)
@@ -85,7 +85,7 @@ namespace MahAppIcons.Shared.Services
 
         private async Task StartupAsync()
         {
-            //await ThemeSelectorService.SetRequestedThemeAsync();
+            await ThemeSelectorService.SetRequestedThemeAsync();
         }
 
         private IEnumerable<ActivationHandler> GetActivationHandlers()

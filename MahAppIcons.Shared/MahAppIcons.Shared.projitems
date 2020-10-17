@@ -22,12 +22,18 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\ActivationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DataTemplateSelectionHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\DefaultActivationHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\DoubleToPercentConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\DoubleToStringPercentConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\EnumToBooleanConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IconHelperConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IconPackList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\NavigationServiceEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\PercentToDoubleConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\SettingsStorageExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ThemeSelectorService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserControls\IconContentControl.xaml.cs">
+      <DependentUpon>IconContentControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HomePageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\IconDetailsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\IconPackViewModel.cs" />
@@ -65,6 +71,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Styles\_Thickness.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControls\IconContentControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

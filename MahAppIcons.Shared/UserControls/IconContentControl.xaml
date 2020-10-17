@@ -1,0 +1,411 @@
+﻿<UserControl
+    x:Class="MahAppIcons.Shared.UserControls.IconContentControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:icon="using:MahApps.Metro.IconPacks"
+    xmlns:local="using:MahAppIcons.Shared.UserControls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:service="using:MahAppIcons.Shared.Services"
+    xmlns:vm1="using:MahAppIcons.SharedViewModels"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <service:IconHelperConverter x:Key="Iconhelperconverter" />
+
+        <DataTemplate x:Key="PackIconBootstrapIconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconBootstrapIcons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconBoxIconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconBoxIcons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconCodiconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconCodicons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconEntypoKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconEntypo
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconEvaIconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconEvaIcons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconFeatherIconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconFeatherIcons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconFileIconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconFileIcons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconFontaudioKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconFontaudio
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconFontAwesomeKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconFontAwesome
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconForkAwesomeKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconForkAwesome
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconIoniconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconIonicons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconJamIconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconJamIcons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconMaterialKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconMaterial
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconMaterialDesignKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconMaterialDesign
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconMaterialLightKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconMaterialLight
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconMicronsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconMicrons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconModernKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconModern
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconOcticonsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconOcticons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconPicolIconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconPicolIcons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconPixelartIconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconPixelartIcons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconRadixIconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconRadixIcons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconRemixIconKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconRemixIcon
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconRPGAwesomeKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconRPGAwesome
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconSimpleIconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconSimpleIcons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconTypiconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconTypicons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconUniconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconUnicons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconVaadinIconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconVaadinIcons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconWeatherIconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconWeatherIcons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+        <DataTemplate x:Key="PackIconZondiconsKind" x:DataType="vm1:IIconViewModel">
+            <icon:PackIconZondicons
+                Width="100"
+                Height="100"
+                BorderThickness="1"
+                Kind="{Binding Value, Mode=OneWay}" />
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid
+        x:Name="IconContent"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Background="Transparent"
+        DataContext="{Binding}">
+        <ContentPresenter HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Interactivity:Interaction.Behaviors>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconBootstrapIcons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconBootstrapIconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconBoxIcons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconBoxIconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconCodicons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconCodiconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconEntypo">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconEntypoKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconEvaIcons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconEvaIconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconFeatherIcons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconFeatherIconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconFileIcons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconFileIconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconFontaudio">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconFontaudioKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconFontAwesome">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconFontAwesomeKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconForkAwesome">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconForkAwesomeKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconIonicons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconIoniconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconJamIcons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconJamIconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconMaterial">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconMaterialDesign">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialDesignKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconMaterialLight">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialLightKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconMicrons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMicronsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconModern">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconModernKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconOcticons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconMaterialLightKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconPicolIcons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconPicolIconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconPixelartIcons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconPixelartIconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconRadixIcons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconRadixIconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconRemixIcon">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconRemixIconKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconRPGAwesome">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconRPGAwesomeKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconSimpleIcons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconSimpleIconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconTypicons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconTypiconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconUnicons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconUniconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconVaadinIcons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconVaadinIconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconWeatherIcons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconWeatherIconsKind}" />
+                </Core:DataTriggerBehavior>
+                <Core:DataTriggerBehavior
+                    Binding="{Binding Converter={StaticResource Iconhelperconverter}}"
+                    ComparisonCondition="Equal"
+                    Value="PackIconZondicons">
+                    <Core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource PackIconZondiconsKind}" />
+                </Core:DataTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </ContentPresenter>
+
+    </Grid>
+</UserControl>

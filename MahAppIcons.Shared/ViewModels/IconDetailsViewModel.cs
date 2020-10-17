@@ -36,11 +36,11 @@ namespace MahAppIcons.Shared.ViewModels
             }
         }
 
-        private Color _test;
-        public Color Test
+        private SolidColorBrush _colorpickerselectedcolor;
+        public SolidColorBrush ColorPickerSelectedColor
         {
-            get { return _test; }
-            set { Set(ref _test, value); }
+            get { return _colorpickerselectedcolor; }
+            set { Set(ref _colorpickerselectedcolor, value); }
         }
 
     }
@@ -52,19 +52,19 @@ namespace MahAppIcons.Shared.ViewModels
         public SolidColorBrush ForegroundBrush { get; set; }
 
     }
-    public class IconDetailsItem : ViewModelBase, IIconDetailsItem
-    {
-        public string Name { get; set; }
+    //public class IconDetailsItem : ViewModelBase, IIconDetailsItem
+    //{
+    //    public string Name { get; set; }
 
-        public string Description { get; set; }
+    //    public string Description { get; set; }
 
-        public string TypeDescription { get; set; }
+    //    public string TypeDescription { get; set; }
 
-        public Type IconPackType { get; set; }
+    //    public Type IconPackType { get; set; }
 
-        public Type IconType { get; set; }
+    //    public Type IconType { get; set; }
 
-        public object Value { get; set; }
-        public SolidColorBrush ColorValue { get; set; }
-    }
+    //    public object Value { get; set; }
+    //    public SolidColorBrush ColorValue { get; set; }
+    //}
 }

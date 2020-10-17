@@ -73,7 +73,7 @@ namespace MahAppIcons.Shared.Views
         {
             try
             {
-                _storeditem = (IIconViewModel)e.ClickedItem;
+                _storeditem = (IconViewModel)e.ClickedItem;
                 var gridviewcontrol = IconPackList.FindControl<GridView>(MasterDetailsControl, typeof(GridView), "gvwIconsList");
                 if (gridviewcontrol != null)
                 {
