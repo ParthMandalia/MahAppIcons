@@ -8,6 +8,6 @@ Only Uwp Version is currently supported.
 Nugets Used
 MahApps Metro Icons, MVVMLightLibStd10, Uno.Microsoft.Toolkit.Uwp.UI.Controls
 
-![IconsPage.Jpg](https://raw.githubusercontent.com/ParthMandalia/MahAppIcons/master/MahAppIcons.UWP/ScreenShots/IconsPage.jpg)
-![FilterQuery.Jpg](https://raw.githubusercontent.com/ParthMandalia/MahAppIcons/master/MahAppIcons.UWP/ScreenShots/FilterQuery.jpg)
-![CompactMode.webp](https://raw.githubusercontent.com/ParthMandalia/MahAppIcons/master/MahAppIcons.UWP/ScreenShots/ezgif.com-gif-maker.webp)
+![IconsPage](https://raw.githubusercontent.com/ParthMandalia/MahAppIcons/master/MahAppIcons.UWP/ScreenShots/DesktopMode.webp)
+![FilterQuery](https://raw.githubusercontent.com/ParthMandalia/MahAppIcons/master/MahAppIcons.UWP/ScreenShots/FilterQuery.jpg)
+![CompactMode](https://raw.githubusercontent.com/ParthMandalia/MahAppIcons/master/MahAppIcons.UWP/ScreenShots/CompactMode.webp)
