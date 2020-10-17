@@ -88,7 +88,7 @@
                                         CornerRadius="15"
                                         PlaceholderText="Search"
                                         Text="{Binding FilterText, Mode=TwoWay}">
-                                        <TextBox.KeyboardAccelerators>
+                                        <!--<TextBox.KeyboardAccelerators>
                                             <KeyboardAccelerator Key="Enter">
                                                 <Interactivity:Interaction.Behaviors>
                                                     <Core:EventTriggerBehavior EventName="Invoked">
@@ -96,7 +96,7 @@
                                                     </Core:EventTriggerBehavior>
                                                 </Interactivity:Interaction.Behaviors>
                                             </KeyboardAccelerator>
-                                        </TextBox.KeyboardAccelerators>
+                                        </TextBox.KeyboardAccelerators>-->
                                     </TextBox>
                                 </Grid>
                             </DataTemplate>

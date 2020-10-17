@@ -104,6 +104,8 @@ namespace MahAppIcons.SharedViewModels
 
         private void PrepareFiltering()
         {
+            //this._iconsCollectionView = (ICollectionView)this.Icons;
+            //this._iconsCollectionView.AsQueryable<string>(this.FilterText, (IIconViewModel) o);
             //this._iconsCollectionView = CollectionViewSource.GetDefaultView(this.Icons);
             //this._iconsCollectionView.Filter = o => this.FilterIconsPredicate(this.FilterText, (IIconViewModel) o);
         }
@@ -174,7 +176,7 @@ namespace MahAppIcons.SharedViewModels
             {
                 if (Set(ref _filterText, value))
                 {
-                    ///FilterData();
+                    FilterData();
                     //this._iconsCollectionView.Refresh();
                 }
             }
